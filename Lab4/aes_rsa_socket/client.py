@@ -19,8 +19,6 @@ encrypted_aes_key = client_socket.recv(2048)
 
 cipher_rsa =PKCS1_OAEP.new(client_key)
 aes_key =cipher_rsa.decrypt(encrypted_aes_key)
-
-
 def encrypt_message(key,message):
     cipher= AES.new(key,AES.MODE_CBC)
     ciphertext=cipher.encrypt(pad(message.encode(),AES.block_size))
